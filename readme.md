@@ -1,4 +1,5 @@
 # DATABASE
+Database related information: 
 * Write ahead log: 在修改任何資料時，必須先寫入 log 紀錄，以利之後發生錯誤時能夠回復到原先的狀態。
 * Cascading rollback: 因為當 restart 某個 transation 時，有其他 transation  的資料在執行期間更動，導致必須連同一起 restart 。
 * Timestamping protocal:  利用時間的戳記來作為執行的順序，確保 transaction 有依序被執行。若發生 conflict 時，系統則傾向讓較老的交易行 restart ，好處是不會有 livelock , deadlock 的問題。缺點則是會發生 cascading rollback 的問題。
